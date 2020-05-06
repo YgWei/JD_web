@@ -42,6 +42,13 @@
     <v-overlay :value="overlay">
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
+
+    <v-snackbar v-model="snackbar" top color="error" text>
+      Submit Fail
+      <v-btn @click="snackbar = false" icon>
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -55,7 +62,8 @@ export default {
       file: null,
       overlay: false,
       rules: [v => !!v || "Required"],
-      valid: true
+      valid: true,
+      snackbar: false
     };
   },
   methods: {
@@ -69,11 +77,12 @@ export default {
           const result = await render.renderData(formData);
           this.overlay = false;
 
-          var file = new Blob([result.data], { type: "application/pdf" });
-          var fileURL = URL.createObjectURL(file);
+          const file = new Blob([result.data], { type: "application/pdf" });
+          const fileURL = URL.createObjectURL(file);
           window.open(fileURL);
         } catch {
           this.overlay = false;
+          this.snackbar = true;
         }
       }
     }
