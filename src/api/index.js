@@ -1,7 +1,8 @@
-import render from "./render.js";
+import project from "./project.js";
 import appserve from "./appserve";
 import login from "./login";
 import user from "./user";
+import mail from "./mail";
 
 appserve.interceptors.request.use(
   config => {
@@ -16,4 +17,4 @@ appserve.interceptors.request.use(
   }
 );
 
-export { render, appserve, login, user };
+export { project, appserve, login, user, mail };

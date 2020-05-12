@@ -1,7 +1,7 @@
 import { login, user } from "@/api";
 export const state = {
   token: null,
-  user: {}
+  user: null
 };
 
 export const mutations = {
@@ -29,7 +29,7 @@ export const getters = {
   getToken(state) {
     return state.token;
   },
-  getRoles(state) {
-    return state.user.roles;
+  getUserInfo(state) {
+    return state.user;
   }
 };

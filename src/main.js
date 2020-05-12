@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import GAuth from "vue-google-oauth2";
+import "@/layout";
+import "@/components";
 
 const gauthOption = {
   clientId:

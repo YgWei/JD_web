@@ -20,6 +20,7 @@
         </v-list>
       </v-menu>
     </v-toolbar>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -36,7 +37,7 @@ export default {
   },
   methods: {
     returnHome() {
-      this.$router.push("/home").catch(() => {});
+      this.$router.push("/projects").catch(() => {});
     },
     logout(eventClick) {
       if (eventClick.value === "logout") {
@@ -44,9 +45,11 @@ export default {
         this.$gAuth.signOut();
         this.$router.push("/login");
       } else if (eventClick.value === "setting") {
-        console.log(eventClick);
+        this.$router.push("/settings").catch(() => {});
+        this.$router.push("/settings");
       } else {
-        console.log(eventClick);
+        this.$router.push("/users").catch(() => {});
+        this.$router.push("/users");
       }
     }
   }
