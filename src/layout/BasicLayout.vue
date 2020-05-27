@@ -46,10 +46,8 @@ export default {
         this.$router.push("/login");
       } else if (eventClick.value === "setting") {
         this.$router.push("/settings").catch(() => {});
-        this.$router.push("/settings");
       } else {
         this.$router.push("/users").catch(() => {});
-        this.$router.push("/users");
       }
     }
   }

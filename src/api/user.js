@@ -8,5 +8,8 @@ export default {
   },
   async getUserInfo() {
     return await appserve.get("userinfo");
+  },
+  async editUserDetail(id) {
+    return await appserve.put(`${API_URL}/${id}`);
   }
 };
